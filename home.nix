@@ -5,6 +5,7 @@
     ./modules/home-manager/windowManager/dwm/dwm.nix
     ./modules/home-manager/alacritty.nix
     ./modules/home-manager/git.nix
+    ./modules/home-manager/fonts/fonts.nix
   ];
   home.username = "fynn";
   home.homeDirectory = "/home/fynn";
@@ -15,4 +16,5 @@
   dwm.enable = true;
   alacritty.enable = true;
   git.enable = true;
+  fonts.enable = true;
 }

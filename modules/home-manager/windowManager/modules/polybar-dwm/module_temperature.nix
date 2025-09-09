@@ -1,0 +1,20 @@
+{ lib, config, pkgs, colors, ... }:
+
+{
+  type = "internal/temperature";
+  thermal-zone = 0;
+  warn-temperature = 60;
+  
+  format = "<ramp> <label>";
+  format-warn = "<ramp> <label-warn>";
+  
+  label = "%temperature-c%";
+  label-warn = "%temperature-c%";
+  label-warn-foreground = "${colors.secondary}";
+  
+  ramp-0 = "";
+  ramp-1 = "";
+  ramp-2 = "";
+  ramp-3 = "";
+  ramp-4 = "";
+}

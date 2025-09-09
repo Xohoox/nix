@@ -105,6 +105,7 @@
     wget
     git
     tree
+    unzip
   ];
 
   # started in user sessions.

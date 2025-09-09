@@ -4,6 +4,7 @@
   imports = [
     ../modules/sxhkd.nix
     ../modules/xwallpaper.nix
+    ../modules/polybar-dwm/polybar-dwm.nix
   ];
 
   options = {
@@ -13,6 +14,7 @@
   config = lib.mkIf config.dwm.enable {
     sxhkd.enable = true;
     xwallpaper.enable = true;
+    polybar-dwm.enable = true;
 
     home.file.".config/dwm/autostart/main.sh" = {
       text = ''
