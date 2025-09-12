@@ -16,12 +16,14 @@
     xwallpaper.enable = true;
     polybar-dwm.enable = true;
 
-    home.file.".config/dwm/autostart/main.sh" = {
-      text = ''
+    xsession = {
+      enable = true;
+      windowManager.command = "dwm";
+      initExtra = ''
         ${pkgs.xwallpaper}/bin/xwallpaper --zoom ${config.home.homeDirectory}/.config/wallpaper/zima.jpg &
         sxhkd &
+        polybarRun &
       '';
-      executable=true;
-    };  
+    };
   };
 }

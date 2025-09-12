@@ -24,12 +24,6 @@ let
       make PREFIX=$out install
     '';
   };
-
-  startDwmScript = pkgs.writeShellScript "start-dwm" ''
-    #!/bin/sh
-    find $HOME/.config/dwm/autostart -executable -exec {} ';'
-    exec ${dwmPackage}/bin/dwm
-  '';
 in
 {
   options = {
@@ -37,22 +31,9 @@ in
   };
 
   config = lib.mkIf config.dwm.enable {
-    environment.systemPackages = [ dwmPackage pkgs.dmenu pkgs.sxhkd ];
+    environment.systemPackages = [ pkgs.dmenu pkgs.sxhkd ];
 
-    # Register dwm as a desktop session so LightDM and others can find it
-    environment.etc."X11/sessions/dwm.desktop".text = ''
-      [Desktop Entry]
-      Name=dwm
-      Comment=Dynamic window manager
-      Exec=${startDwmScript}
-      Type=Application
-    '';
-
-    # Ensure X11 is enabled
-    services.xserver.enable = lib.mkDefault true;
-
-    # Ensure LightDM is enabled if not already set elsewhere
-    services.xserver.displayManager.lightdm.enable = lib.mkDefault true;
-
+    services.xserver.windowManager.dwm.package = dwmPackage;
+    services.xserver.windowManager.dwm.enable = true;
   };
 }

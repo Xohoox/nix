@@ -47,6 +47,19 @@ let
       cp bin/polybar $out/bin/
     '';
   };
+
+  polybarRunScript = pkgs.writeShellScriptBin "polybarRun" ''
+    #!/bin/sh
+    pkill -x polybar
+
+    if type "xrandr"; then
+      for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+        MONITOR=$m polybar --reload > /dev/null &
+      done
+    else
+      polybar -q --reload > /dev/null &
+    fi
+  '';
 in
 {
   options = {
@@ -60,5 +73,7 @@ in
       script = "polybar --reload mybar &";
       settings = polybarSettings;
     };
+
+    home.packages = [ polybarRunScript ];
   };  
 }
