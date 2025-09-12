@@ -2,8 +2,8 @@
 
 {
   type = "internal/battery";
-  battery = "BAT0";
-  adapter = "AC";
+  battery = "BAT1";
+  adapter = "ACAD";
   full-at = 98;
   
   format-charging = "<animation-charging> <label-charging>";

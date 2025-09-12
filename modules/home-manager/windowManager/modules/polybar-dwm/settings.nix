@@ -16,11 +16,12 @@ let
   module_temperature = import ./module_temperature.nix { lib = lib; config = config; pkgs = pkgs; colors = colors; };
   module_battery = import ./module_battery.nix { lib = lib; config = config; pkgs = pkgs; colors = colors; };
   module_date = import ./module_date.nix { lib = lib; config = config; pkgs = pkgs; colors = colors; };
+  module_audio = import ./module_audio.nix { lib = lib; config = config; pkgs = pkgs; colors = colors; };
 in
 {
   "bar/basic" = bar_basic;
   "module/dwm" = module_dwm;
-  #"module/pulseaudio" = module_;
+  "module/pulseaudio" = module_audio;
   #"module/wifi" = module_wifi
   "module/temperature" = module_temperature;
   "module/battery" = module_battery;
