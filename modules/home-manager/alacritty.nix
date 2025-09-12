@@ -27,6 +27,8 @@
         };
       };
 
+      mouse.hide_when_typing = true;
+
       window.padding = {
         x = 2;
         y = 1;

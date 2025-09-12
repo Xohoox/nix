@@ -3,7 +3,8 @@
 {
   monitor = "$\{env:MONITOR:\}";
   width = "100%";
-  height = 40;
+  height = 50;
+  dpi = 120;
   offset-x = 0;
   offset-y = 0;
   fixed-center = false;
@@ -16,7 +17,7 @@
   line-color = "#f00";
 
   border-size = 0;
-  border-color = "#00000000";
+  border-color = "${colors.bg-alt}";
 
   padding-left = 0;
   padding-right = 2;
@@ -25,9 +26,9 @@
   module-margin-left = 3;
   module-margin-right = 3;
 
-  font-0 = "Comic Code NerdFont Mono:fontformat=truetype:size=15:antialias=true;0";
-  font-1 = "FontAwesome:style=Regular:size=13;";
-  font-2 = "Comic Code NerdFont Mono:style=Regular:size=13;";
+  font-0 = "Comic Code NerdFont Mono:style=Regular:size=13;3";
+  font-1 = "Symbols Nerd Font Mono:size=30;3";
+
 
   modules-left = "dwm";
   modules-center = "";

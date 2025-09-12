@@ -3,7 +3,7 @@
 {
     type = "internal/dwm";
     format = "<label-tags> <label-layout> <label-floating> <label-title>";
-    format-background = "#1e1e1e";
+    format-background = "${colors.bg}";
   
     enable-tags-click = true;
     enable-tags-scroll = true;
@@ -19,30 +19,30 @@
   
     label-title = "%title%";
     label-title-padding = 2;
-    label-title-forefround = "#1e1e1e";
-    label-title-background = "#1e1e1e";
+    label-title-forefround = "${colors.bg}";
+    label-title-background = "${colors.bg}";
     label-title-maxlen = 30;
   
     label-layout = "%symbol%";
     label-layout-padding = 2;
-    label-layout-foreground = "#D4D4D4";
-    label-layout-background = "#1e1e1e";
+    label-layout-foreground = "${colors.fg}";
+    label-layout-background = "${colors.bg}";
   
     label-focused = "%name%";
-    label-focused-background = "#444";
-    label-focused-underline= "#1e1e1e";
+    label-focused-background = "${colors.bg-alt}";
+    label-focused-underline= "${colors.bg}";
     label-focused-padding = 5;
   
     label-unfocused = "%name%";
     label-unfocused-padding = 2;
   
     label-visible = "%name%";
-    label-visible-background = "#1e1e1e";
-    label-visible-underline = "#1e1e1e";
+    label-visible-background = "${colors.bg}";
+    label-visible-underline = "${colors.bg}";
     label-visible-padding = 5;
   
     label-urgent = "%name%";
-    label-urgent-background = "#bd2c40";
+    label-urgent-background = "${colors.alert}";
     label-urgent-padding = 2;
   
     label-empty = "";

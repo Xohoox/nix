@@ -70,7 +70,7 @@ in
     services.polybar = {
       enable = true;
       package = polybar-dwm;
-      script = "polybar --reload mybar &";
+      script = "polybarRun &";
       settings = polybarSettings;
     };
 
