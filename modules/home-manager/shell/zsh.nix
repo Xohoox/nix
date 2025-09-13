@@ -1,5 +1,9 @@
 { pkgs, lib, config, ... }:
 
+let
+  alias = import ./alias.nix { lib = lib; config = config; pkgs = pkgs; };
+  abbr = import ./abbr.nix { lib = lib; config = config; pkgs = pkgs; };
+in
 {
   options = {
     zsh.enable = lib.mkEnableOption "Enable zsh as shell";
@@ -27,7 +31,18 @@
         saveNoDups = true;
         ignoreAllDups = true;
       };
+
+      shellAliases = alias;
+
+      zsh-abbr = {
+        enable = true;
+        abbreviations = abbr;
+      };
     };
+
+    nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+      "zsh-abbr"
+    ];
 
     programs.fzf.enable = true;
     programs.fzf.enableZshIntegration = true;
