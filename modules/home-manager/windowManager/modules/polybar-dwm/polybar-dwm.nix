@@ -33,12 +33,13 @@ let
       pkgs.libuv
       pkgs.xcb-proto
       pkgs.python3
+      pkgs.libnl 
     ];
-      #pkgs.dwm    # optional, if you want to link against patched dwm
 
     cmakeFlags = [
       "-DENABLE_DWM=ON"
       "-DBUILD_DOC=OFF"
+      "-DENABLE_NETWORK=ON"
     ];
     enableParallelBuilding = true;
 

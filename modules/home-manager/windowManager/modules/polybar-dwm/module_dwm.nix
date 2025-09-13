@@ -18,7 +18,7 @@
     secondary-layout-symbol = "[M]";
   
     label-title = "%title%";
-    label-title-padding = 2;
+    label-title-padding = 0;
     label-title-forefround = "${colors.bg}";
     label-title-background = "${colors.bg}";
     label-title-maxlen = 30;
@@ -31,7 +31,7 @@
     label-focused = "%name%";
     label-focused-background = "${colors.bg-alt}";
     label-focused-underline= "${colors.bg}";
-    label-focused-padding = 5;
+    label-focused-padding = 2;
   
     label-unfocused = "%name%";
     label-unfocused-padding = 2;
@@ -39,12 +39,12 @@
     label-visible = "%name%";
     label-visible-background = "${colors.bg}";
     label-visible-underline = "${colors.bg}";
-    label-visible-padding = 5;
+    label-visible-padding = 2;
   
     label-urgent = "%name%";
     label-urgent-background = "${colors.alert}";
     label-urgent-padding = 2;
   
     label-empty = "";
-    label-empty-padding = 2;
+    label-empty-padding = 0;
   }

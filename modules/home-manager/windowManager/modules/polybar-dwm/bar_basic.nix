@@ -3,8 +3,7 @@
 {
   monitor = "$\{env:MONITOR:\}";
   width = "100%";
-  height = 50;
-  dpi = 120;
+  height = "3%";
   offset-x = 0;
   offset-y = 0;
   fixed-center = false;
@@ -21,18 +20,17 @@
 
   padding-left = 0;
   padding-right = 2;
-  padding-top = 2;
+  padding-top = 1;
+  padding-bottom = 1;
 
-  module-margin-left = 3;
-  module-margin-right = 3;
+  module-margin-left = 2;
+  module-margin-right = 2;
 
-  font-0 = "Comic Code NerdFont Mono:style=Regular:size=13;3";
-  font-1 = "Symbols Nerd Font Mono:size=30;3";
-
+  font-0 = "Comic Code NerdFont Mono:style=Regular:size=18;";
 
   modules-left = "dwm";
   modules-center = "";
-  modules-right = "pulseaudio wifi temperature battery date";
+  modules-right = "wifi pulseaudio temperature battery date";
 
   override-redirect = "false";
   cursor-click = "pointer";

@@ -31,7 +31,7 @@ in
   };
 
   config = lib.mkIf config.dwm.enable {
-    environment.systemPackages = [ pkgs.dmenu pkgs.sxhkd ];
+    environment.systemPackages = [ pkgs.dmenu pkgs.sxhkd pkgs.xclip ];
 
     services.xserver.windowManager.dwm.package = dwmPackage;
     services.xserver.windowManager.dwm.enable = true;
