@@ -49,6 +49,7 @@
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
+    backupFileExtension = "backup";
     users = {
       "fynn" = import ./home.nix;
     };
@@ -75,12 +76,8 @@
     #jack.enable = true;
   };
 
-  # Enable touchpad support
-  services.libinput.enable = true;
-
   programs.zsh.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.fynn = {
     shell = pkgs.zsh;
     isNormalUser = true;

@@ -7,5 +7,6 @@
 
   config = lib.mkIf config.laptop.enable {
     programs.light.enable = true;
+    services.libinput.enable = true;
   };
 }
