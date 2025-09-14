@@ -39,11 +39,6 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
   dwm.enable = true;
   laptop.enable = true;
 
@@ -55,7 +50,6 @@
     };
   };
 
-  # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
     variant = "altgr-intl";
@@ -89,14 +83,8 @@
     ];
   };
 
-  # Install firefox.
-  programs.firefox.enable = true;
-
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim
     wget
@@ -105,16 +93,13 @@
     unzip
   ];
 
-  # started in user sessions.
    programs.mtr.enable = true;
    programs.gnupg.agent = {
      enable = true;
      enableSSHSupport = true;
    };
 
-  # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
   system.stateVersion = "25.05";
-
 }

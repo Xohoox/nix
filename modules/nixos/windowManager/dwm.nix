@@ -26,14 +26,26 @@ let
   };
 in
 {
+
+  imports = [
+    ./lightdm.nix
+  ];
+
   options = {
     dwm.enable = lib.mkEnableOption "Enable custom dwm build and session";
   };
 
   config = lib.mkIf config.dwm.enable {
-    environment.systemPackages = [ pkgs.dmenu pkgs.sxhkd pkgs.xclip ];
+    environment.systemPackages = [
+      pkgs.dmenu
+      pkgs.sxhkd
+      pkgs.xclip
+    ];
 
+    services.xserver.enable = true;
     services.xserver.windowManager.dwm.package = dwmPackage;
     services.xserver.windowManager.dwm.enable = true;
+
+    lightdm.enable = true;
   };
 }

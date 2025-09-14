@@ -13,6 +13,7 @@
       "{XF86MonBrightnessUp, XF86MonBrightnessDown}" = "light {-A 20,-U 20}";
       "{XF86AudioRaiseVolume, XF86AudioLowerVolume}" = "wpctl set-volume @DEFAULT_AUDIO_SINK@ {0.05+,0.05-}";
       "XF86AudioMute" = "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+      "super + shift + x" = "light-locker-command -l";
     };
   };
 }
