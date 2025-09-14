@@ -15,7 +15,7 @@
     ];
 
     services.xserver.displayManager.sessionCommands = ''
-      ${pkgs.lightlocker}/bin/light-locker --lock-after-screensaver=300 &
+      ${pkgs.lightlocker}/bin/light-locker &
     '';
 
     services.logind.extraConfig = ''
