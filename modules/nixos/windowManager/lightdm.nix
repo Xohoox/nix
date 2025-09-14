@@ -15,15 +15,15 @@
     ];
 
     services.xserver.displayManager.sessionCommands = ''
-      ${pkgs.lightlocker}/bin/light-locker &
+      ${pkgs.lightlocker}/bin/light-locker --no-lock-on-suspend --no-lock-on-lid --no-idle-hint &
     '';
 
-    services.logind.extraConfig = ''
-      HandleLidSwitch=suspend
-      HandleLidSwitchDocked=ignore
-      IdleAction=lock
-      IdleActionSec=5min
-    '';
+    #services.logind.extraConfig = ''
+    #  HandleLidSwitch=suspend
+    #  HandleLidSwitchDocked=ignore
+    #  IdleAction=lock
+    #  IdleActionSec=5min
+    #'';
 
     services.xserver.displayManager.lightdm = {
       enable = true;
