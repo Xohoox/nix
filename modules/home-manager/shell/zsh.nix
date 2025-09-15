@@ -21,6 +21,8 @@ in
         setopt interactive_comments
         unsetopt BEEP
         stty stop undef
+        zvm_after_init_commands+=('eval "$(${pkgs.fzf}/bin/fzf --zsh)"')
+        zvm_after_init_commands+=('source ${pkgs.zsh-abbr}/share/zsh/zsh-abbr/zsh-abbr.plugin.zsh')
       '';
 
       history = {
