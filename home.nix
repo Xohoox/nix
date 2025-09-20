@@ -8,6 +8,7 @@
     ./modules/home-manager/fonts/fonts.nix
     ./modules/home-manager/shell/zsh.nix
     ./modules/home-manager/editors/neovim.nix
+    ./modules/home-manager/applications/nextcloud.nix
   ];
   home.username = "fynn";
   home.homeDirectory = "/home/fynn";
@@ -22,4 +23,5 @@
   fonts.enable = true;
   zsh.enable = true;
   neovim.enable = true;
+  nextcloud.enable = true;
 }
