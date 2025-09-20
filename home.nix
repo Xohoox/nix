@@ -7,6 +7,7 @@
     ./modules/home-manager/git.nix
     ./modules/home-manager/fonts/fonts.nix
     ./modules/home-manager/shell/zsh.nix
+    ./modules/home-manager/editors/neovim.nix
   ];
   home.username = "fynn";
   home.homeDirectory = "/home/fynn";
@@ -20,4 +21,5 @@
   git.enable = true;
   fonts.enable = true;
   zsh.enable = true;
+  neovim.enable = true;
 }

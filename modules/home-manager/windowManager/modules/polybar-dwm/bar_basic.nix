@@ -3,7 +3,8 @@
 {
   monitor = "$\{env:MONITOR:\}";
   width = "100%";
-  height = "3%";
+  height = 50;
+  dpi = 50;
   offset-x = 0;
   offset-y = 0;
   fixed-center = false;
@@ -27,6 +28,7 @@
   module-margin-right = 2;
 
   font-0 = "Comic Code NerdFont Mono:style=Regular:size=18;";
+  font-1 = "FontAwesome:style=Regular:size=13;";
 
   modules-left = "dwm";
   modules-center = "";

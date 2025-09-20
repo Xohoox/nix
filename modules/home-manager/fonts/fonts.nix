@@ -11,5 +11,7 @@
 
   config = lib.mkIf config.fonts.enable {
     comic-code.enable = true;
+
+    home.packages = [ pkgs.font-awesome ];
   };
 }

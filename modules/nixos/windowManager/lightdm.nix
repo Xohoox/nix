@@ -14,9 +14,9 @@
       gnome-themes-extra
     ];
 
-    services.xserver.displayManager.sessionCommands = ''
-      ${pkgs.lightlocker}/bin/light-locker --no-lock-on-suspend --no-lock-on-lid --no-idle-hint &
-    '';
+    #services.xserver.displayManager.sessionCommands = ''
+    #  ${pkgs.lightlocker}/bin/light-locker --no-lock-on-suspend --no-lock-on-lid --no-idle-hint &
+    #'';
 
     #services.logind.extraConfig = ''
     #  HandleLidSwitch=suspend

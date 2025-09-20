@@ -22,8 +22,9 @@ in
         unsetopt BEEP
         stty stop undef
         zvm_after_init_commands+=('eval "$(${pkgs.fzf}/bin/fzf --zsh)"')
-        zvm_after_init_commands+=('source ${pkgs.zsh-abbr}/share/zsh/zsh-abbr/zsh-abbr.plugin.zsh')
       '';
+
+        #zvm_after_init_commands+=('source ${pkgs.zsh-abbr}/share/zsh/zsh-abbr/zsh-abbr.plugin.zsh')
 
       history = {
         append = true;
@@ -34,12 +35,12 @@ in
         ignoreAllDups = true;
       };
 
-      shellAliases = alias;
+      shellAliases = alias // abbr;
 
-      zsh-abbr = {
-        enable = true;
-        abbreviations = abbr;
-      };
+      #zsh-abbr = {
+      #  enable = false;
+      #  abbreviations = abbr;
+      #};
 
       plugins = [
         {
@@ -50,12 +51,12 @@ in
       ];
     };
 
-    nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-      "zsh-abbr"
-    ];
-
     programs.fzf.enable = true;
-    programs.fzf.enableZshIntegration = true;
+    programs.fzf.enableZshIntegration = false;
+
+    #nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    #  "zsh-abbr"
+    #];
 
     programs.starship = {
       enable = true;
