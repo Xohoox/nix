@@ -5,6 +5,11 @@ let
   abbr = import ./abbr.nix { lib = lib; config = config; pkgs = pkgs; };
 in
 {
+  imports = [
+    ./lsd.nix
+    ./starship.nix
+  ];
+
   options = {
     zsh.enable = lib.mkEnableOption "Enable zsh as shell";
   };
@@ -54,45 +59,10 @@ in
     programs.fzf.enable = true;
     programs.fzf.enableZshIntegration = false;
 
-    #nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    #  "zsh-abbr"
-    #];
+    lsd.enable = true;
+    programs.lsd.enableZshIntegration = true;
 
-    programs.starship = {
-      enable = true;
-      enableZshIntegration = true;
-
-      settings = {
-        add_newline = false;
-
-        format = ''
-          $cmd_duration$directory$git_state$git_branch$git_status$character
-        '';
-
-        cmd_duration = {
-          min_time = 2000;
-          style = "yellow";
-          format = "took [$duration]($style) ";
-        };
-
-        directory = {
-          style = "cyan";
-        };
-
-        git_branch = {
-          symbol = " ";
-          style = "purple";
-        };
-
-        git_status = {
-          style = "red";
-        };
-
-        character = {
-          success_symbol = "[❯](green)";
-          error_symbol = "[❯](red)";
-        };
-      };
-    };
+    starship.enable = true;
+    programs.starship.enableZshIntegration = true;
   };
 }

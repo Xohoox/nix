@@ -13,10 +13,8 @@
       mkdir -p "${config.home.homeDirectory}/.local/nextcloud"
     '';
 
-    home.activation.createNextcloudLinks = lib.hm.dag.entryAfter ["createNextcloudFolders"] ''
-      ln -sf "${config.home.homeDirectory}/.local/nextcloud/Documents" "${config.home.homeDirectory}/ppr"
-      ln -sf "${config.home.homeDirectory}/.local/nextcloud/Work" "${config.home.homeDirectory}/work"
-      ln -sf "${config.home.homeDirectory}/.local/nextcloud/Notes" "${config.home.homeDirectory}/notes"
-    '';
+    home.file."ppr".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.local/nextcloud/Documents";
+    home.file."work".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.local/nextcloud/Work";
+    home.file."notes".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.local/nextcloud/Notes";
   };
 }
