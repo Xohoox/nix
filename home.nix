@@ -9,12 +9,15 @@
     ./modules/home-manager/shell/zsh.nix
     ./modules/home-manager/editors/neovim.nix
     ./modules/home-manager/applications/nextcloud.nix
+    ./modules/home-manager/applications/uni.nix
   ];
   home.username = "fynn";
   home.homeDirectory = "/home/fynn";
 
   home.stateVersion = "25.05";
   programs.home-manager.enable = true;
+
+  nixpkgs.config.allowUnfree = true;
 
   xdg.enable = true;
   dwm.enable = true;
@@ -24,4 +27,5 @@
   zsh.enable = true;
   neovim.enable = true;
   nextcloud.enable = true;
+  uni.enable = true;
 }

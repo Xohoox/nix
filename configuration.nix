@@ -91,7 +91,11 @@
     git
     tree
     unzip
+    nix-ld
+    steam-run
   ];
+
+  programs.nix-ld.enable = true;
 
    programs.mtr.enable = true;
    programs.gnupg.agent = {

@@ -3,6 +3,7 @@
 let
   alias = import ./alias.nix { lib = lib; config = config; pkgs = pkgs; };
   abbr = import ./abbr.nix { lib = lib; config = config; pkgs = pkgs; };
+  fzfFunctions = import ./fzfFunctions.nix { lib = lib; config = config; pkgs = pkgs; };
 in
 {
   imports = [
@@ -19,7 +20,7 @@ in
       enable = true;
       syntaxHighlighting.enable = true;
       autosuggestion.enable = true;
-      dotDir = ".config/zsh";
+      dotDir = "${config.xdg.configHome}/zsh";
 
       initContent = ''
         setopt interactive_comments
@@ -27,6 +28,9 @@ in
         unsetopt BEEP
         stty stop undef
         zvm_after_init_commands+=('eval "$(${pkgs.fzf}/bin/fzf --zsh)"')
+
+        ${fzfFunctions.p}
+        ${fzfFunctions.sshf}
       '';
 
         #zvm_after_init_commands+=('source ${pkgs.zsh-abbr}/share/zsh/zsh-abbr/zsh-abbr.plugin.zsh')
