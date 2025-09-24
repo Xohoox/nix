@@ -28,4 +28,32 @@
   neovim.enable = true;
   nextcloud.enable = true;
   uni.enable = true;
+
+  gtk = {
+    enable = true;
+
+    theme = {
+      name = "Adwaita-dark";
+      package = pkgs.gnome-themes-extra;
+    };
+
+    iconTheme = {
+      name = "Papirus-Dark";
+      package = pkgs.papirus-icon-theme;
+    };
+
+    cursorTheme = {
+      name = "Adwaita";
+      package = pkgs.adwaita-icon-theme;
+    };
+  };
+
+  qt = {
+    enable = true;
+    platformTheme = "gtk";
+    style = {
+      name = "adwaita-dark";
+      package = pkgs.adwaita-qt;
+    };
+  };
 }

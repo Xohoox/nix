@@ -104,6 +104,12 @@
    };
 
   services.openssh.enable = true;
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
+
+  services.dbus.enable = true;
+
+  programs.dconf.enable = true;
 
   system.stateVersion = "25.05";
 }
