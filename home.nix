@@ -10,6 +10,7 @@
     ./modules/home-manager/editors/neovim.nix
     ./modules/home-manager/applications/nextcloud.nix
     ./modules/home-manager/applications/uni.nix
+    ./modules/home-manager/applications/discord.nix
   ];
   home.username = "fynn";
   home.homeDirectory = "/home/fynn";
@@ -28,6 +29,7 @@
   neovim.enable = true;
   nextcloud.enable = true;
   uni.enable = true;
+  discord.enable = true;
 
   gtk = {
     enable = true;

@@ -6,6 +6,7 @@
       ./hardware-configuration.nix
       ./modules/nixos/windowManager/dwm.nix
       ./modules/nixos/laptop.nix
+      ./modules/nixos/vm.nix
     ];
 
   # Bootloader.
@@ -15,6 +16,24 @@
   boot.initrd.luks.devices."luks-eeee8245-d0e0-4093-9337-b7c143eee27b".device = "/dev/disk/by-uuid/eeee8245-d0e0-4093-9337-b7c143eee27b";
   networking.hostName = "amadeus";
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
+  #boot.resumeDevice = "/dev/disk/by-uuid/6d06a029-82cc-420d-88f0-61cfbabb900b";
+
+  powerManagement.enable = true;
+  #services.power-profiles-daemon.enable = true;
+  # Suspend first then hibernate when closing the lid
+  #services.logind.lidSwitch = "suspend-then-hibernate";
+  # Hibernate on power button pressed
+  #services.logind.powerKey = "hibernate";
+  #services.logind.powerKeyLongPress = "poweroff";
+
+  # Suspend first
+  #boot.kernelParams = ["mem_sleep_default=deep"];
+
+  #systemd.sleep.extraConfig = ''
+  #HibernateMode=platform shutdown
+  #HibernateState=disk
+  #'';
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -41,6 +60,7 @@
 
   dwm.enable = true;
   laptop.enable = true;
+  vm.enable  = true;
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
@@ -76,7 +96,7 @@
     shell = pkgs.zsh;
     isNormalUser = true;
     description = "Fynn";
-    extraGroups = [ "networkmanager" "wheel" "audio" "video" "input" ];
+    extraGroups = [ "networkmanager" "wheel" "audio" "video" "input" "libvirtd" ];
     packages = with pkgs; [
      brave
      alacritty
@@ -93,7 +113,24 @@
     unzip
     nix-ld
     steam-run
+    wiremix
+    tldr
+    dbeaver-bin
+    ansible
+    jdk17
+    remmina
+    python3Packages.pip
+    python3Packages.pexpect
   ];
+
+  services.tailscale = {
+    enable = true;
+    extraUpFlags = [ "--accept-routes" ];
+  };
+
+  services.postgresql = {
+    enable = true;
+  };
 
   programs.nix-ld.enable = true;
 
@@ -102,6 +139,8 @@
      enable = true;
      enableSSHSupport = true;
    };
+
+  programs.firefox.enable = true;
 
   services.openssh.enable = true;
   hardware.bluetooth.enable = true;

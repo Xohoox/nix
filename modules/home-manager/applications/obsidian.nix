@@ -9,12 +9,12 @@
     programs.obsidian = {
       enable = true;
 
-      vaults = {
-        notes = {
-          enable = true;
-          target = "${config.home.homeDirectory}/notes";
-        };
-      };
+      # vaults = {
+      #   notes = {
+      #     enable = true;
+      #     target = "${config.home.homeDirectory}/notes";
+      #   };
+      # };
     };
   };
 }
