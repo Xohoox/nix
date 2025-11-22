@@ -8,12 +8,13 @@
   config = lib.mkIf config.git.enable {
     programs.git = {
       enable = true;
-      userName = "Fynn Michell-Auli";
-      userEmail = "f.michell-auli@live.de";
-      extraConfig = {
-        init = { 
-          defaultBranch = "main"; 
+
+      settings = {
+        user = {
+          name = "Fynn Michell-Auli";
+          email = "f.michell-auli@live.de";
         };
+          init.defaultBranch = "main"; 
       };
     };
   };
