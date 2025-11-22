@@ -40,6 +40,7 @@ let
       "-DENABLE_DWM=ON"
       "-DBUILD_DOC=OFF"
       "-DENABLE_NETWORK=ON"
+      "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
     ];
     enableParallelBuilding = true;
 
