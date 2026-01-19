@@ -121,6 +121,7 @@
     remmina
     python3Packages.pip
     python3Packages.pexpect
+    nur.repos.Ev357.helium
   ];
 
   services.tailscale = {
