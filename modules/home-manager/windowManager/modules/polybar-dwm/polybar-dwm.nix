@@ -3,12 +3,14 @@
 let
   polybarSettings = import ./settings.nix { lib = lib; config = config; pkgs = pkgs; };
 
-  polybar-dwm = pkgs.stdenv.mkDerivation {
+  # Fix for now until polybar-dwm-module supports GCC 15 error | note: 'uint8_t' is defined in header '<cstdint>'
+  # polybar-dwm = pkgs.stdenv.mkDerivation {
+  polybar-dwm = pkgs.gcc13Stdenv.mkDerivation {
     pname = "polybar-dwm";
     version = "3.7.1";
     src = pkgs.fetchFromGitHub {
-      owner = "mihirlad55";
-      repo = "polybar-dwm-module";
+      owner = "pgrondek";
+      repo = "polybar-dwm";
       rev = "09eac084494d90310a5a27a01b32dc515f6db352";
       sha256 = "sha256-CeJ47CqzO2KZ+QyebxJtramJfVHfdsVgREcFAE7zdeo=";
       fetchSubmodules = true;
@@ -16,8 +18,6 @@ let
 
     nativeBuildInputs = [ pkgs.cmake pkgs.pkg-config ];
     buildInputs = [
-      pkgs.cmake
-      pkgs.pkg-config
       pkgs.jsoncpp
       pkgs.cairo
       pkgs.xorg.libxcb
@@ -34,6 +34,7 @@ let
       pkgs.xcb-proto
       pkgs.python3
       pkgs.libnl 
+      pkgs.libxdmcp
     ];
 
     cmakeFlags = [

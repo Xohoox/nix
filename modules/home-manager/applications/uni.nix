@@ -12,6 +12,6 @@
   config = lib.mkIf config.uni.enable {
     obsidian.enable = true;
 
-    home.packages = with pkgs; [ zoom go uxplay ];
+    home.packages = with pkgs; [ zoom go uxplay anki ];
   };
 }
