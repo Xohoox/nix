@@ -6,4 +6,6 @@
   wget = "wget --hsts-file=$XDG_CACHE_HOME/wget/wget-hsts";
   ":q" = "exit";
   v = "$EDITOR";
+  c = "xclip -selection clipboard";
+  o = "xdg-open";
 }

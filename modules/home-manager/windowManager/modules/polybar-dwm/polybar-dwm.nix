@@ -17,24 +17,24 @@ let
     };
 
     nativeBuildInputs = [ pkgs.cmake pkgs.pkg-config ];
-    buildInputs = [
-      pkgs.jsoncpp
-      pkgs.cairo
-      pkgs.xorg.libxcb
-      pkgs.xorg.xcbutil
-      pkgs.xorg.xcbutilwm
-      pkgs.xcbutilxrm
-      pkgs.xorg.xcbutilimage
-      pkgs.xorg.xcbutilcursor
-      pkgs.libpulseaudio
-      pkgs.alsa-lib
-      pkgs.freetype
-      pkgs.fontconfig
-      pkgs.libuv
-      pkgs.xcb-proto
-      pkgs.python3
-      pkgs.libnl 
-      pkgs.libxdmcp
+    buildInputs = with pkgs; [
+      jsoncpp
+      cairo
+      libxcb
+      libxcb-util
+      libxcb-wm
+      xcbutilxrm
+      libxcb-image
+      libxcb-cursor
+      libpulseaudio
+      alsa-lib
+      freetype
+      fontconfig
+      libuv
+      xcb-proto
+      python3
+      libnl 
+      libxdmcp
     ];
 
     cmakeFlags = [

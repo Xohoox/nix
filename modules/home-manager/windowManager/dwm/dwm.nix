@@ -23,6 +23,7 @@
         ${pkgs.xwallpaper}/bin/xwallpaper --zoom ${config.home.homeDirectory}/.config/wallpaper/zima.jpg &
         sxhkd &
         polybarRun &
+        themr screenProfile select desk &
       '';
     };
   };

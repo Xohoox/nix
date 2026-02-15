@@ -12,11 +12,11 @@ let
       sha256 = "sha256-ci9T3QjzHbwZzuWsqCqDAUdtMaL7QbpPndNfu/UYpso=";
     };
 
-    buildInputs = [
-      pkgs.xorg.libX11
-      pkgs.xorg.libXft
-      pkgs.xorg.libXinerama
-      pkgs.yajl
+    buildInputs = with pkgs; [
+      libX11
+      libXft
+      libxinerama
+      yajl
     ];
 
     installPhase = ''

@@ -8,8 +8,8 @@
   config = lib.mkIf config.lightdm.enable {
     environment.systemPackages = with pkgs; [
       lightlocker
-      xorg.xset
-      xorg.xrandr
+      xset
+      xrandr
       papirus-icon-theme
       gnome-themes-extra
     ];
