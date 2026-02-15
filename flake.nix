@@ -13,17 +13,32 @@
       url = "github:nix-community/NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    themr = {
+      url = "github:Xohoox/themr";
+      # url = "/home/fynn/rep/themr"; # only for development
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, nur, ... }@inputs: {
-    nixosConfigurations.amadeus = nixpkgs.lib.nixosSystem {
-      specialArgs = {inherit inputs;};
-      modules = [
-        ./configuration.nix
-        inputs.home-manager.nixosModules.default
-        nur.modules.nixos.default
-        #nur.legacyPackages."${system}".repos.iopq.modules.xraya
-      ];
+  outputs = { self, nixpkgs, nur, themr, ... }@inputs: 
+    let
+    system = "x86_64-linux";
+    in {
+      nixosConfigurations.amadeus = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        modules = [
+          ./configuration.nix
+          inputs.home-manager.nixosModules.default
+          nur.modules.nixos.default
+
+          {
+            environment.systemPackages = [
+              themr.packages.${system}.default
+            ];
+          }
+
+        ];
     };
   };
 }
